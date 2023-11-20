@@ -1,0 +1,12 @@
+main.o: main.c \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/system.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/soclib_io.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/stdint.h \
+  /users/outil/soc/soclib/soclib/module/connectivity_component/vci_multi_tty/include/soclib/tty.h \
+  ../segmentation.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/stdint.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/system_mips.h \
+  ../segmentation.h \
+  /users/outil/soc/soclib/soclib/module/infrastructure_component/interrupt_infrastructure/vci_icu/include/soclib/icu.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/stdio.h \
+  /users/outil/soc/soclib/soclib/module/internal_component/vci_timer/include/soclib/timer.h

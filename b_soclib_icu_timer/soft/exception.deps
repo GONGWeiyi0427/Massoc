@@ -1,0 +1,11 @@
+exception.o:  \
+ /users/outil/soc/soclib/soclib/platform/topcells/common/exception.c \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/system.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/soclib_io.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/stdint.h \
+  /users/outil/soc/soclib/soclib/module/connectivity_component/vci_multi_tty/include/soclib/tty.h \
+  ../segmentation.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/stdint.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/system_mips.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/stdio.h \
+  /users/outil/soc/soclib/soclib/platform/topcells/common/exception_mips.c

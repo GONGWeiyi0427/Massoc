@@ -41,13 +41,19 @@ static const int period = 300000;
 //Interruption flag
 volatile static uint32_t irq_flag;
 
+
+volatile static uint32_t cptms=0;
+
 void irq_handler(int irq)
 {
   // TME exercise: write the ISR for the timer interrupt.
   // Refer to the ICU specification.
   uint32_t interrupt_vector;
   uint32_t timer;
-  uint32_t d;
+
+  cptms++;
+  cptms=cptms%10;
+  printf("irq cptms=%d\n", cptms);
 
   interrupt_vector = soclib_io_get(base(ICU), ICU_IT_VECTOR);
 

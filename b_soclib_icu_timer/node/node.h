@@ -68,7 +68,7 @@ SC_MODULE(node)
       maptab->add(Segment("data" , DATA_BASE , DATA_SIZE , IntTab(0), true));
 
       maptab->add(Segment("tty"   , TTY_BASE   , TTY_SIZE   , IntTab(1), false));
-      maptab->add(Segment("icu"   , ICU_BASE   , ICU_SIZE   , IntTab(2), false));
+      maptab->add(Segment("icu"   , ICU_BASE   , ICU_SIZE   , IntTab(3), false));
       //Add the segment in by consulting the segment.h
       maptab->add(Segment("timer" , TIMER_BASE , TIMER_SIZE , IntTab(2), false));
 
@@ -93,6 +93,7 @@ SC_MODULE(node)
       soclib::caba::VciSignals<vci_param> *s_ram;
       soclib::caba::VciSignals<vci_param> *s_tty;
       soclib::caba::VciSignals<vci_param> *s_icu;
+      soclib::caba::VciSignals<vci_param> *s_timer;
       soclib::caba::VciSignals<vci_param> *s_sensor;
 
       s_mips_it0 = new sc_core::sc_signal<bool> ("s_mips_it0");
@@ -107,8 +108,9 @@ SC_MODULE(node)
       s_ram = new soclib::caba::VciSignals<vci_param> ("s_ram");
       s_tty = new soclib::caba::VciSignals<vci_param> ("s_tty");
       s_icu = new soclib::caba::VciSignals<vci_param> ("s_icu");
-      //Creqte the new timer
+      //Create the new timer
       s_timer_irq = new sc_core::sc_signal<bool> ("s_timer_irq");
+      s_timer = new soclib::caba::VciSignals<vci_param> ("s_timer");
 
       ////////////////////////////////////////////////////////////////////
       // Part 4 : instances                                             //
@@ -131,9 +133,10 @@ SC_MODULE(node)
       sprintf(ttyname,"tty%d",m_ident);
       tty = new soclib::caba::VciMultiTty<vci_param> ("tty", IntTab(1), *maptab, ttyname, NULL);
       icu = new soclib::caba::VciIcu<vci_param>("icu", IntTab(3), *maptab, 0);
-      vgmn = new soclib::caba::VciVgmn<vci_param>("vgmn", *maptab, 1, 3, 2, 8);
       //Define the parameter of the timer
       timer = new soclib::caba::VciTimer<vci_param>("timer", IntTab(2), *maptab, 1);
+      vgmn = new soclib::caba::VciVgmn<vci_param>("vgmn", *maptab, 1, 4, 10, 8);
+
 
       ////////////////////////////////////////////////////////////////////
       // Part 5 : netlist                                               //
@@ -163,18 +166,21 @@ SC_MODULE(node)
       icu->p_vci(*s_icu);
       icu->p_irq(*s_mips_it0);
 
-      vgmn->p_clk(p_clk);
-      vgmn->p_resetn(p_resetn);
-      vgmn->p_to_initiator[0](*s_m);
-      vgmn->p_to_target[0](*s_ram);
-      vgmn->p_to_target[1](*s_tty);
-      vgmn->p_to_target[2](*s_icu);
-
       //Connect the signals for timer
       timer->p_clk(p_clk);
       timer->p_resetn(p_resetn);
       timer->p_vci(*s_timer);
       timer->p_irq[0](*s_timer_irq);
+
+      vgmn->p_clk(p_clk);
+      vgmn->p_resetn(p_resetn);
+      vgmn->p_to_initiator[0](*s_m);
+      vgmn->p_to_target[0](*s_ram);
+      vgmn->p_to_target[1](*s_tty);
+      vgmn->p_to_target[2](*s_timer);
+      vgmn->p_to_target[3](*s_icu);
+
+
     }
 };
 #endif
