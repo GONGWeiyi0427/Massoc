@@ -1,0 +1,21 @@
+1 a     inpt 2 0
+2 axorin from a
+3 aandin from a
+4 b      inpt 2 0
+5 bxorin from b
+6 bandin from b
+7 axorb xor 2 2
+  2 5
+8 axorb2 from axorb
+9 axorb1 from axorb
+10 cin    inpt 2 0
+11 cin1 from cin
+12 cin2 from cin
+13 sum xor 0 2
+   8 11
+14 aandb  and 1 2
+   3 6
+15 cinand  and 1 2
+   9 12
+16 cout or 0 2
+14 15
