@@ -1,0 +1,5 @@
+1     3gat inpt    2   0 >sa0 >sa1
+2     8fan from     3gat      >sa1
+3     9fan from     3gat      >sa1
+10    10gat nand    0   2      >sa1
+     3     2

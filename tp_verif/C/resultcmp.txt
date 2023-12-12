@@ -1,0 +1,117 @@
+p cnf 37 81
+c gate BogusHole INPUT
+c gate a INPUT
+c gate axorin FROM
+2 -3 0
+-2 3 0
+c gate aandin FROM
+2 -4 0
+-2 4 0
+c gate b INPUT
+c gate bxorin FROM
+5 -6 0
+-5 6 0
+c gate bandin FROM
+5 -7 0
+-5 7 0
+c gate axorb XOR
+3 6 -8 0
+-3 6 8 0
+3 -6 8 0
+-3 -6 -8 0
+c gate axorb2 FROM
+8 -9 0
+-8 9 0
+c gate axorb1 FROM
+8 -10 0
+-8 10 0
+c gate cin INPUT
+c gate cin1 FROM
+11 -12 0
+-11 12 0
+c gate cin2 FROM
+11 -13 0
+-11 13 0
+c gate sum XOR
+9 12 -14 0
+-9 12 14 0
+9 -12 14 0
+-9 -12 -14 0
+c gate aandb AND
+4 -15 0
+7 -15 0
+-4 -7 15 0
+c gate cinand AND
+10 -16 0
+13 -16 0
+-10 -13 16 0
+c gate cout OR
+-15 17 0
+-16 17 0
+15 16 -17 0
+c gate BogusHole INPUT
+c gate a INPUT
+c gate axorin FROM
+19 -20 0
+-19 20 0
+c gate aandin FROM
+19 -21 0
+-19 21 0
+c gate b INPUT
+c gate bxorin FROM
+22 -23 0
+-22 23 0
+c gate bandin FROM
+22 -24 0
+-22 24 0
+c gate axorb XOR
+20 23 -25 0
+-20 23 25 0
+20 -23 25 0
+-20 -23 -25 0
+c gate axorb2 FROM
+25 -26 0
+-25 26 0
+c gate axorb1 FROM
+25 -27 0
+-25 27 0
+c gate cin INPUT
+c gate cin1 FROM
+28 -29 0
+-28 29 0
+c gate cin2 FROM
+28 -30 0
+-28 30 0
+c gate sum XOR
+26 29 -31 0
+-26 29 31 0
+26 -29 31 0
+-26 -29 -31 0
+c gate aandb AND
+21 -32 0
+24 -32 0
+-21 -24 32 0
+c gate cinand AND
+27 -33 0
+30 -33 0
+-27 -30 33 0
+c gate cout OR
+-32 34 0
+-33 34 0
+32 33 -34 0
+2 -2 0
+-2 2 0
+5 -5 0
+-5 5 0
+11 -11 0
+-11 11 0
+-14 -14 -35 0
+14 14 -35 0
+14 -14 35 0
+-14 14 35 0
+-17 -17 -36 0
+17 17 -36 0
+17 -17 36 0
+-17 17 36 0
+c Assert that at least one of the above XORs is true.
+35 36 0

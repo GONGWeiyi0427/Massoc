@@ -1,0 +1,5 @@
+1 a    inpt 1 0
+2 b    inpt 1 0
+3 c    inpt 1 0
+4 o    nand 0 3
+  1 2 3

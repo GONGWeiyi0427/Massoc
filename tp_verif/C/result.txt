@@ -1,0 +1,51 @@
+p cnf 17 33
+c gate BogusHole INPUT
+c gate a INPUT
+c gate axorin FROM
+2 -3 0
+-2 3 0
+c gate aandin FROM
+2 -4 0
+-2 4 0
+c gate b INPUT
+c gate bxorin FROM
+5 -6 0
+-5 6 0
+c gate bandin FROM
+5 -7 0
+-5 7 0
+c gate axorb XOR
+3 6 -8 0
+-3 6 8 0
+3 -6 8 0
+-3 -6 -8 0
+c gate axorb2 FROM
+8 -9 0
+-8 9 0
+c gate axorb1 FROM
+8 -10 0
+-8 10 0
+c gate cin INPUT
+c gate cin1 FROM
+11 -12 0
+-11 12 0
+c gate cin2 FROM
+11 -13 0
+-11 13 0
+c gate sum XOR
+9 12 -14 0
+-9 12 14 0
+9 -12 14 0
+-9 -12 -14 0
+c gate aandb AND
+4 -15 0
+7 -15 0
+-4 -7 15 0
+c gate cinand AND
+10 -16 0
+13 -16 0
+-10 -13 16 0
+c gate cout OR
+-15 17 0
+-16 17 0
+15 16 -17 0
